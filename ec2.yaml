@@ -14,4 +14,8 @@ Resources:
       SubnetId: subnet-0936cfc53606d4989
       SecurityGroupIds:
         - !Ref SecurityGroup
-      AssociatePublicIpAddress: true
+
+Outputs:
+  InstancePublicIp:
+    Description: The public IP address of the instance
+    Value: !GetAtt Instance.PublicIp
