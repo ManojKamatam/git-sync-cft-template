@@ -1,24 +1,17 @@
 AWSTemplateFormatVersion: "2010-09-09"
 Resources:
-  VPC:
-    Type: AWS::EC2::VPC
-    Properties:
-      CidrBlock: 10.0.0.0/16
-
   SecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties:
       GroupDescription: My security group for my EC2 instance
-      VpcId: !Ref VPC
+      VpcId: vpc-01236f61fd7e8a280
 
   Instance:
     Type: AWS::EC2::Instance
     Properties:
       ImageId: ami-07caf9f60dd9b55bb
       InstanceType: t2.micro
-      NetworkInterfaces:
-        - SubnetId: subnet-0936cfc53606d4989
-          DeviceIndex: 0
-          AssociatePublicIpAddress: true
-          GroupSet:
-            - !Ref SecurityGroup
+      SubnetId: subnet-0936cfc53606d4989
+      SecurityGroupIds:
+        - !Ref SecurityGroup
+      AssociatePublicIpAddress: true
