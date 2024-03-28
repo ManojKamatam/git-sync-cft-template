@@ -14,7 +14,7 @@ Resources:
   Instance:
     Type: AWS::EC2::Instance
     Properties:
-      ImageId: ami-0c55b159cbfafe1f0
+      ImageId: ami-07caf9f60dd9b55bb
       InstanceType: t2.micro
       NetworkInterfaces:
         - SubnetId: subnet-0936cfc53606d4989
